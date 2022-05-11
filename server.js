@@ -1,7 +1,7 @@
-//Importe le package express
+//Importe le module express pour la construction de l'API Rest
 const express = require("express")
 
-//Importe le package cors
+//Importe le module cors : fournit un middleware Express pour activer CORS avec diverses options.
 const cors = require("cors")
 
 //Remplace body-parser()
