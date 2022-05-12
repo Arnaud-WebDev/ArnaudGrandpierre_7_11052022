@@ -1,8 +1,11 @@
+const dotenv = require("dotenv").config()
+// console.log(process.env.USER_MYSQL)
+
 module.exports = {
   HOST: "localhost",
-  USER: USER_MYSQL,
+  USER: process.env.USER_MYSQL,
   PASSWORD: process.env.PASSWORD_MYSQL,
-  DB: DB_MYSQL,
+  DB: process.env.DB_MYSQL,
   dialect: "mysql",
   // pool est optionnelle mais je voulais tester
   pool: {

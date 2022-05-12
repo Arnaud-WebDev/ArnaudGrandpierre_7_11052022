@@ -19,6 +19,9 @@ app.use(express.json())
 //Il analyse les requêtes entrantes avec des charges utiles JSON et basé sur body-parser
 app.use(express.urlencoded({ extended: true }))
 
+const db = require("./app/models")
+db.sequelize.sync()
+
 //Défini un route simple a tester
 app.get("/", (req, res) => {
   res.json({ message: "Je suis la route a tester" })
