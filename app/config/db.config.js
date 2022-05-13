@@ -1,5 +1,5 @@
 const dotenv = require("dotenv").config()
-// console.log(process.env.USER_MYSQL)
+// console.log(process.env.SECRET_KEY)
 
 module.exports = {
   HOST: "localhost",
