@@ -59,7 +59,7 @@ exports.signin = (req, res) => {
         expiresIn: "24h",
       })
       let authorities = []
-      useInflection.getRoles().then((roles) => {
+      user.getRoles().then((roles) => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push("ROLE" + roles[i].name.toUpperCase())
         }

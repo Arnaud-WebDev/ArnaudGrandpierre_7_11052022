@@ -28,7 +28,22 @@ db.sequelize.sync({ force: true }).then(() => {
 // { force: true }).then(() => {
 //  console.log("Drop and re-sync db.");
 // initial()
-// });
+//});
+
+// Défini une route simple a tester
+app.get("/", (req, res) => {
+  res.json({ message: "Je suis la route a tester" })
+})
+
+// Routes
+require("./app/routes/auth.routes")(app)
+require("./app/routes/user.routes")(app)
+
+// Défini le port à écouter
+const PORT = process.env.PORT || 8080
+app.listen(PORT, () => {
+  console.log(`Le serveur tourne sur le port ${PORT}`)
+})
 
 function initial() {
   Role.create({
@@ -44,18 +59,3 @@ function initial() {
     name: "admin",
   })
 }
-
-// Défini une route simple a tester
-app.get("/", (req, res) => {
-  res.json({ message: "Je suis la route a tester" })
-})
-
-// Routes
-require("./app/routes/auth.routes")
-require("./app/routes/user.routes")
-
-// Défini le port à écouter
-const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-  console.log(`Le serveur tourne sur le port ${PORT}`)
-})
