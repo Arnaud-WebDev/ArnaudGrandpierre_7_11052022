@@ -5,17 +5,14 @@ const Role = db.role
 const Op = db.Sequelize.Op
 let jwt = require("jsonwebtoken")
 let bcrypt = require("bcryptjs")
-const { user } = require("../models")
-const { useInflection } = require("sequelize/types")
 
 exports.signup = (req, res) => {
   // Sauvegarder l'utilisateur dans la base de données
-  user
-    .create({
-      username: req.body.username,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-    })
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: bcrypt.hashSync(req.body.password, 10),
+  })
     .then((user) => {
       if (req.body.roles) {
         Role.findAll({

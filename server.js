@@ -1,10 +1,10 @@
-//Importe le module express pour la construction de l'API Rest
+// Importe le module express pour la construction de l'API Rest
 const express = require("express")
 
-//Importe le module cors : fournit un middleware Express pour activer CORS avec diverses options.
+// Importe le module cors : fournit un middleware Express pour activer CORS avec diverses options.
 const cors = require("cors")
 
-//Remplace body-parser()
+// Remplace body-parser()
 const app = express()
 
 let corsOption = {
@@ -25,10 +25,10 @@ db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.")
   initial()
 })
-//{ force: true }).then(() => {
+// { force: true }).then(() => {
 //  console.log("Drop and re-sync db.");
 // initial()
-//});
+// });
 
 function initial() {
   Role.create({
@@ -45,12 +45,16 @@ function initial() {
   })
 }
 
-//Défini un route simple a tester
+// Défini une route simple a tester
 app.get("/", (req, res) => {
   res.json({ message: "Je suis la route a tester" })
 })
 
-//Défini le port a ecouter
+// Routes
+require("./app/routes/auth.routes")
+require("./app/routes/user.routes")
+
+// Défini le port à écouter
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
   console.log(`Le serveur tourne sur le port ${PORT}`)
