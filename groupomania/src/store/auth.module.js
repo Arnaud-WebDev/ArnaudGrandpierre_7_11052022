@@ -1,8 +1,6 @@
-import AuthService from "@/services/auth.service"
-import { registerRuntimeCompiler } from "vue"
+import AuthService from "../services/auth.service"
 const user = JSON.parse(localStorage.getItem("user"))
 const initialState = user ? { status: { loggedIn: true }, user } : { status: { loggedIn: false }, user: null }
-
 export const auth = {
   namespaced: true,
   state: initialState,
@@ -10,11 +8,11 @@ export const auth = {
     login({ commit }, user) {
       return AuthService.login(user).then(
         (user) => {
-          commit("logginSuccess", user)
+          commit("loginSuccess", user)
           return Promise.resolve(user)
         },
         (error) => {
-          commit("logginFailure")
+          commit("loginFailure")
           return Promise.reject(error)
         }
       )
@@ -49,7 +47,7 @@ export const auth = {
       state.status.loggedIn = false
       state.user = null
     },
-    registerSucess(state) {
+    registerSuccess(state) {
       state.status.loggedIn = false
     },
     registerFailure(state) {
