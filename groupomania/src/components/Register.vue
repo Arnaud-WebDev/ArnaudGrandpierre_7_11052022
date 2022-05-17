@@ -3,7 +3,7 @@
     <Form @submit="handleRegister" :validation-schema="schema">
       <div v-if="!successful">
         <label for="username">Username :</label>
-        <Field name="username" type="text" autofocus />
+        <Field name="username" type="text" />
         <ErrorMessage name="username" /><br />
 
         <label for="email">Email :</label>
@@ -14,7 +14,7 @@
         <Field name="password" type="password" />
         <ErrorMessage name="password" /><br />
 
-        <input type="submit" value="S'incrire" />
+        <button :disabled="loading"><span v-show="loading"></span> Sign Up</button>
       </div>
     </Form>
     <div v-if="message" class="alert" :class="successful ? 'alert-success' : 'alert-danger'">
