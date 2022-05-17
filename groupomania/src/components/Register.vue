@@ -1,20 +1,37 @@
 <template>
   <div>
     <Form @submit="handleRegister" :validation-schema="schema">
-      <div v-if="!successful">
-        <label for="username">Username :</label>
-        <Field name="username" type="text" />
-        <ErrorMessage name="username" /><br />
+      <div v-if="!successful" class="center">
+        <div class="container">
+          <div>
+            <div class="start">
+              <label for="username">Username :</label>
+            </div>
+            <Field name="username" type="text" />
+            <ErrorMessage name="username" />
+          </div>
+          <br />
 
-        <label for="email">Email :</label>
-        <Field name="email" type="email" />
-        <ErrorMessage name="email" /><br />
+          <div>
+            <div class="start">
+              <label for="email">Email :</label>
+            </div>
+            <Field name="email" type="email" />
+            <ErrorMessage name="email" />
+          </div>
+          <br />
 
-        <label for="password">Password :</label>
-        <Field name="password" type="password" />
-        <ErrorMessage name="password" /><br />
+          <div>
+            <div class="start">
+              <label for="password">Password :</label>
+            </div>
+            <Field name="password" type="password" />
+            <ErrorMessage name="password" />
+          </div>
+          <br />
 
-        <button :disabled="loading"><span v-show="loading"></span> Sign Up</button>
+          <button :disabled="loading"><span v-show="loading"></span> Sign Up</button>
+        </div>
       </div>
     </Form>
     <div v-if="message" class="alert" :class="successful ? 'alert-success' : 'alert-danger'">
@@ -81,5 +98,28 @@ export default {
 <style scoped>
 input {
   margin: 10px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container {
+  margin-top: 40px;
+  border: 2px solid black;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: antiquewhite;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link to="register">Register</router-link>
+
     <router-view />
   </nav>
 </template>
