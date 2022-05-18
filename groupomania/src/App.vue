@@ -1,9 +1,10 @@
 <template>
-  <nav>
-    <router-link to="register">Register</router-link>
+  <div>
+    <img src="./assets/icon-left-font.png" alt="Logo Groupomania" class="logo" /> <br />
+    <router-link to="register">Register</router-link> / <router-link to="register">Login</router-link>
 
     <router-view />
-  </nav>
+  </div>
 </template>
 
 <style>
@@ -26,5 +27,15 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.logo {
+  width: 250px;
+  margin-right: 20px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
 }
 </style>

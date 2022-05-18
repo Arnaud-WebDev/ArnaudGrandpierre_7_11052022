@@ -43,6 +43,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate"
 import * as yup from "yup"
+
 export default {
   name: "Register",
   components: {
@@ -120,6 +121,7 @@ label {
   border: 2px solid black;
   padding: 30px;
   border-radius: 10px;
-  background-color: antiquewhite;
+  box-shadow: 2px 2px 3px black;
+  background-color: #f7f7f7;
 }
 </style>
