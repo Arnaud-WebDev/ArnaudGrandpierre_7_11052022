@@ -32,6 +32,7 @@ nav a.router-link-exact-active {
 .logo {
   width: 250px;
   margin-right: 20px;
+  margin-top: -40px;
 }
 
 .flex {
